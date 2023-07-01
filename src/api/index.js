@@ -28,6 +28,7 @@ import { startPage } from "../components/startPage";
 import { createUserAccount } from "../components/userAccount";
 import { createTaskItem } from "../components/userAccount/task";
 
+import { firebaseConfig } from "../../firebaseConfigs/firebaseConfig";
 import { dragAndDropHandler } from "../components/dragAndDrop";
 import {
 	completedTasksBlock,
@@ -38,7 +39,6 @@ import { wrapper } from "../components/wrapper";
 import { currentDate } from "../utils/date";
 import { encryptionData } from "../utils/encryption";
 import { sortTasks } from "../utils/sortTasks";
-import { firebaseConfig } from "./firebaseConfig";
 
 export const app = initializeApp(firebaseConfig);
 
