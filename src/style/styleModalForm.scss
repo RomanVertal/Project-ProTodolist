@@ -1,0 +1,438 @@
+%style-fixed-block{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(160, 160, 160, 0.7);    
+
+}
+
+%style-button-close{
+    background-color: #232323;
+    color: #FFFFFF;
+    border: none;
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    &:hover{
+        color: #8000ff;
+    }
+}
+
+%style-label{
+    color: #8000ff;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 15px;
+
+}
+
+%style-input{
+    background: rgba(50, 50, 50, 0.948044);
+    opacity: 0.8;
+    border: 1px solid rgba(50, 50, 50, 0.948044);
+    border-radius: 4px;
+    padding: 10px 15px;
+    outline: none;
+    color: #FFFFFF;
+
+    &:focus{
+        border-bottom: 2px solid #8000ff;
+    }
+}
+
+%style-button-one{
+    color: #ffffff;    
+    border: 2px solid #8000ff;
+    box-shadow: 0 0 10px #8000ff;
+    border-radius: 7px;
+    transition: 0.5s;   
+    cursor: pointer; 
+    font-size: 16px;
+    
+    
+    background: #8000ff;
+
+    &:hover{
+        background: #232323;
+    }
+
+}
+
+%style-button-two{
+    color: #ffffff;    
+    border: 2px solid #8000ff;
+    box-shadow: 0 0 10px #8000ff;
+    border-radius: 7px;
+    transition: 0.5s;   
+    cursor: pointer; 
+    font-size: 16px;
+
+    
+   
+    background:  #232323;
+
+    &:hover{
+        background: #8000ff;
+    }
+}
+
+
+.registration-block{
+    @extend %style-fixed-block;
+}
+
+.registration-form{
+    position: relative;
+    width: 650px;    
+    margin: 50px auto;    
+    padding: 50px;
+    background-color: #232323;    
+
+    form{
+        display: flex;
+        flex-direction: column;        
+    };
+
+    label{
+        @extend %style-label;
+    };
+    input{
+        @extend %style-input;
+
+    };
+};
+
+.invalid{
+   
+    // border-bottom: 1px solid #ff3243 !important;
+    border-left: 4px solid #ff3243 !important;
+}
+
+    
+
+.registration-form__title{
+    font-size: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.registration-form__button-close{
+    @extend %style-button-close;
+}
+
+.registration-form__button-block{    
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.registration-form__button-reset{
+    @extend %style-button-two;
+    padding: 7px 20px;
+    margin-right: 20px;
+}
+
+.registration-form__button-submit{
+    @extend %style-button-one;
+    padding: 7px 10px;
+}
+
+
+.login-block{
+    @extend %style-fixed-block;
+}
+
+.login-form{
+    position: relative;
+    width: 650px;    
+    margin: 50px auto;    
+    padding: 50px;
+    background-color: #232323;    
+
+    form{
+        display: flex;
+        flex-direction: column;        
+    };
+
+    label{
+        @extend %style-label;
+    };
+    input{
+        @extend %style-input;
+    };
+
+
+    
+}
+.login-form__title{
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.login-form__button-close{
+    @extend %style-button-close;
+}
+
+.login-form__button-block{    
+    text-align: center;
+    padding: 40px 20px;
+}
+
+
+
+.login-form__button-submit{
+    @extend %style-button-one;
+    padding: 10px 30px;
+}
+
+.add-task-block{
+    @extend %style-fixed-block;
+}
+
+.add-task-form{
+    position: relative;
+    width: 650px;    
+    margin: 50px auto;    
+    padding: 50px;
+    background-color: #232323;  
+    text-align: center;
+
+    form{
+        display: flex;
+        flex-direction: column;        
+    };
+
+    label{
+        @extend %style-label;
+        margin-bottom: 10px;
+        
+    };
+    input{
+        @extend %style-input;
+        width: 300px;
+        margin: auto;
+    };
+    
+}
+
+.add-task-form__title{
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.add-task-form__button-close{
+    @extend %style-button-close;
+}
+
+.add-task-form__textarea{
+    @extend %style-input;
+    resize:none;
+    width: 300px;
+    height: 120px;
+    margin: auto;
+
+}
+.add-task-form__button{
+    @extend %style-button-one;
+    padding: 10px 30px;
+    margin-top: 40px;
+    
+}
+
+.congratulations{
+    @extend %style-fixed-block;
+}
+
+.congratulations__form{
+    position: relative;
+    width: 650px;    
+    margin: 200px auto;    
+    padding: 50px;
+    background-color: #232323;    
+    text-align: center;
+}
+
+.congratulations_logo{
+    background-color: #24ff2f;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span{
+        font-size: 40px;
+        color: #000000;
+    }
+}
+
+.congratulations__title{
+    color: #FFFFFF;
+    font-size: 14px;
+    span{
+        font-size: 24px;
+    }
+
+}
+
+
+
+.congratulations__btn-close{
+    color: #ffffff;    
+    text-transform: uppercase;
+    border: 2px solid #24ff2f;
+    box-shadow: 0 0 10px #24ff2f;
+    border-radius: 7px;
+    transition: 0.5s;   
+    cursor: pointer; 
+    font-size: 16px;
+    padding: 5px 20px;
+    margin-top: 10px;  
+   
+    background:  #232323;
+
+    &:hover{
+        background: #24ff2f;
+        color: #232323;
+    }
+    
+}
+
+
+.error{
+    @extend %style-fixed-block;
+}
+
+.error__form{
+    position: relative;
+    width: 630px;    
+    margin: 200px auto;    
+    padding: 50px;
+    background-color: #232323;    
+    text-align: center;
+}
+
+.error_logo{
+    background-color: #ff3243;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span{
+        font-size: 40px;
+        font-weight: bold;
+        color: #000000;
+    }
+}
+
+.error__title{
+    color: #FFFFFF;
+    font-size: 18px;
+
+
+}
+
+
+
+.error__btn-close{
+    color: #ffffff;    
+    text-transform: uppercase;
+    border: 2px solid #ff3243;
+    box-shadow: 0 0 10px #ff3243;
+    border-radius: 7px;
+    transition: 0.5s;   
+    cursor: pointer; 
+    font-size: 16px;
+    padding: 5px 20px;
+    margin-top: 10px;  
+   
+    background:  #232323;
+
+    &:hover{
+        background: #ff3243;
+        color: #232323;
+    }
+    
+}
+
+.ask{
+    @extend %style-fixed-block;
+}
+
+.ask__form{
+    position: relative;
+    width: 630px;    
+    margin: 200px auto;    
+    padding: 50px;
+    background-color: #232323;    
+    text-align: center;
+}
+
+
+.ask__title{
+    color: #FFFFFF;
+    font-size: 14px;
+    span{
+        font-size: 24px;
+    }
+    
+}
+
+.ask__btn-yes{
+    color: #ffffff;    
+    text-transform: uppercase;
+    border: 1px solid #24ff2f;
+    box-shadow: 0 0 5px #24ff2f;
+    border-radius: 5px;
+    transition: 0.5s;   
+    cursor: pointer; 
+    font-size: 16px;
+    padding: 5px 20px;
+    margin: 30px 30px 0px;  
+
+   
+    background:  #232323;
+
+    &:hover{
+        background: #24ff2f;
+        color: #232323;
+    }
+}
+
+.ask__btn-no{
+    color: #ffffff;    
+    text-transform: uppercase;
+    border: 1px solid #ff3243;
+    box-shadow: 0 0 5px #ff3243;
+    border-radius: 5px;
+    transition: 0.5s;   
+    cursor: pointer; 
+    font-size: 16px;
+    padding: 5px 20px;
+    margin: 30px 30px 0px;  
+   
+    background:  #232323;
+
+    &:hover{
+        background: #ff3243;
+        color: #232323;
+    }
+}

@@ -1,0 +1,122 @@
+.account__tasks-block{
+    padding: 40px;
+    
+}
+.inProgress-tasks .task{
+    border-left: 3px solid #ff5100;
+}
+
+.completed-tasks .task{
+    border-left: 3px solid #1eff00; 
+}
+
+.overdue-tasks .task{
+    border-left: 3px solid #ff0000;
+}
+
+.task{
+    position: relative;
+    display: flex;
+    background: #1B1B1B;
+    width: 600px;
+    min-height: 100px;
+    color: #ffffff;
+    
+    margin-bottom: 30px;
+
+    box-shadow: 0 0 5px #535353;
+    border-radius: 4px;
+
+
+
+}
+
+.task__checkbox{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.checkbox__input{
+    display: none;
+}
+.checkbox__label{
+    color: #ffffff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    // border: 1px solid #8000ff;
+    box-shadow: 0 0 7px #ffffff;
+    &:hover{
+        box-shadow: 0 0 10px #ffffff;
+    }
+}
+
+.checkbox_active{      
+    background: #1eff00;
+    color: #1B1B1B;
+    border: 1px solid #1eff00;
+    box-shadow: 0 0 7px #1eff00;
+    &:hover{
+        box-shadow: 0 0 10px #1eff00;
+    }
+}
+
+.task__info{
+
+    width: 450px;
+}
+
+.task__info-deadline{
+
+    display: flex;
+    padding: 10px 30px;
+    justify-content: end;
+    border-bottom: 1px solid #2e2e2e;;
+}
+
+.task__info-deadline-title{
+    opacity: 0.5;
+    font-size: 14px;
+    margin-right: 10px;
+
+}
+
+.task__info-deadline-value{
+    opacity: 0.7;
+}
+
+.task__info-title{
+    padding: 20px 20px;
+
+}
+
+.task__button-close{
+    background: #1B1B1B;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    &:hover{
+        color: #8000ff;
+    }
+
+}
+
+.dragging-task{
+    opacity: 0.2;
+}
