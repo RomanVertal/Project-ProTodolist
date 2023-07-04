@@ -1,3 +1,4 @@
+import logoButtonEdit from "../../../public/images/logo_edit.png";
 import { parseDate } from "../../utils/date";
 
 export const createTaskItem = (item) => {
@@ -45,10 +46,40 @@ export const createTaskItem = (item) => {
 	taskDeadlineValue.textContent = parseDate(item.deadline);
 	taskDeadline.append(taskDeadlineValue);
 
-	const taskTitle = document.createElement("div");
-	taskTitle.classList.add("task__info-title");
-	taskTitle.textContent = item.title;
-	taskInfo.append(taskTitle);
+	const taskContainer = document.createElement("div");
+	taskContainer.classList.add("task__info-container");
+	taskInfo.append(taskContainer);
+
+	const taskContent = document.createElement("div");
+	taskContent.classList.add("task-content");
+	taskContainer.append(taskContent);
+
+	const taskContentTitle = document.createElement("div");
+	taskContentTitle.classList.add("task-content-title");
+	taskContentTitle.textContent = item.title;
+	taskContent.append(taskContentTitle);
+
+	const taskContentButton = document.createElement("div");
+	taskContentButton.classList.add("task-content-button", "hidden");
+	taskContent.append(taskContentButton);
+
+	const btnSave = document.createElement("button");
+	btnSave.type = "button";
+	btnSave.classList.add("task__button-save");
+	btnSave.innerHTML = `&#10004;`;
+	taskContentButton.append(btnSave);
+
+	const btnCancel = document.createElement("button");
+	btnCancel.type = "button";
+	btnCancel.classList.add("task__button-cancel");
+	btnCancel.innerHTML = `✕`;
+	taskContentButton.append(btnCancel);
+
+	const btnEditTask = document.createElement("button");
+	btnEditTask.type = "button";
+	btnEditTask.classList.add("task__button-edit");
+	btnEditTask.innerHTML = `<img class = 'task__button-edit-logo' src = ${logoButtonEdit}>`;
+	taskContainer.append(btnEditTask);
 
 	const buttonClose = document.createElement("button");
 	buttonClose.type = "button";

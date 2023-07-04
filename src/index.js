@@ -34,4 +34,4 @@ const initApp = () => {
 
 initApp();
 
-console.log(localStorage);
+// console.log(localStorage);

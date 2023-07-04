@@ -4,6 +4,8 @@ export const addTaskText =
 	"<span>Задача успешно добавлена !</span><br><br>Вы уже можете приступать к её выполнению.";
 export const deleteUserText =
 	"<span>Аккаунт был успешно удален !</span><br><br>Если решите вернуться то вы всегда можете создать новый.";
+export const editTaskText =
+	"<span>Задача была успешно изменена !</span><br><br>Вы уже можете приступать к её выполнению.";
 
 export const createCongratulationsForm = (container, textCongratulations) => {
 	const congratulationsBlock = document.createElement("div");

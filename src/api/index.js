@@ -87,7 +87,7 @@ export const updateTaskList = (
 };
 
 export const createTask = (login, title, deadline) => {
-	const id = uuidv4();
+	const id = new Date().getTime();
 	const db = getDatabase();
 	set(ref(db, `users/${login}/tasks/${id}`), {
 		id,
@@ -107,6 +107,20 @@ export const updateTaskChecked = (login, idTask, completed) => {
 	const db = getDatabase();
 	update(ref(db, `users/${login}/tasks/${idTask}`), {
 		completed,
+	});
+	console.log(login);
+	updateTaskList(
+		inProgressTasksBlock,
+		completedTasksBlock,
+		overdueTasksBlock,
+		login
+	);
+};
+
+export const updateTaskTitle = (login, idTask, title) => {
+	const db = getDatabase();
+	update(ref(db, `users/${login}/tasks/${idTask}`), {
+		title,
 	});
 
 	updateTaskList(
@@ -197,6 +211,46 @@ export const createLoginAuto = (login) => {
 			const user = snapshot.val()[login];
 
 			createUserAccount(main, user);
+		})
+		.catch((error) => {
+			console.error(error);
+		});
+};
+
+export const searchTasksHandler = (
+	inProgressContainer,
+	completedContainer,
+	overdueContainer,
+	login,
+	value
+) => {
+	const dbRef = ref(getDatabase());
+	get(child(dbRef, `users/${login}/tasks`))
+		.then((snapshot) => {
+			const tasks = Object.values(snapshot.val());
+
+			const foundTasks = tasks.filter((item) => {
+				if (item.title.toLowerCase().includes(value.toLowerCase())) {
+					return item;
+				}
+			});
+
+			const { inProgressTasks, completedTasks, overdueTasks } =
+				sortTasks(foundTasks);
+
+			const inProgressTaskElements = inProgressTasks.map(createTaskItem);
+			const completedTaskElements = completedTasks.map(createTaskItem);
+			const overdueTaskElements = overdueTasks.map(createTaskItem);
+
+			inProgressContainer.textContent = "";
+			completedContainer.textContent = "";
+			overdueContainer.textContent = "";
+
+			inProgressContainer.append(...inProgressTaskElements);
+			completedContainer.append(...completedTaskElements);
+			overdueContainer.append(...overdueTaskElements);
+
+			dragAndDropHandler();
 		})
 		.catch((error) => {
 			console.error(error);

@@ -21,5 +21,9 @@ export const sortTasks = (tasks) => {
 			overdueTasks: [],
 		}
 	);
+	inProgressTasks.reverse();
+	completedTasks.reverse();
+	overdueTasks.reverse();
+
 	return { inProgressTasks, completedTasks, overdueTasks };
 };

@@ -1,11 +1,7 @@
-import { updateTaskChecked, updateTaskList } from "../../api";
+import { searchTasksHandler, updateTaskList } from "../../api";
 import { createAddTaskForm } from "../modalWindows/addTask";
-import {
-	askDeleteTaskHandler,
-	askDeleteTaskText,
-	createAskForm,
-} from "../modalWindows/askForm";
 import { wrapper } from "../wrapper";
+import { taskHandler } from "./taskHandler";
 import { tasksFilterHandler } from "./tasksFilterHandler";
 
 export const accountTasks = document.createElement("div");
@@ -98,35 +94,25 @@ export const createUserAccountTasks = (container, user) => {
 
 	navFilter.addEventListener("click", (e) => {
 		tasksFilterHandler(e);
+		console.log(e.target);
 	});
 
 	tasksBlock.addEventListener("click", (e) => {
-		const { target } = e;
-		const task = target.closest(".task");
-
-		if (task) {
-			const idTask = target.closest(".task").id;
-
-			if (target.className === "task__button-close") {
-				createAskForm(
-					wrapper,
-					askDeleteTaskText,
-					askDeleteTaskHandler,
-					user.login,
-					idTask
-				);
-				console.log(idTask);
-			} else if (target.className === "checkbox__input") {
-				const completed = target.checked;
-				target.closest("label").classList.toggle("checkbox_active");
-
-				updateTaskChecked(user.login, idTask, completed);
-			}
-		}
+		taskHandler(e, user.login);
 	});
 
 	buttonAddTask.addEventListener("click", () => {
 		createAddTaskForm(wrapper, user.login);
+	});
+
+	formSearchButton.addEventListener("click", () => {
+		searchTasksHandler(
+			inProgressTasksBlock,
+			completedTasksBlock,
+			overdueTasksBlock,
+			user.login,
+			formSearchInput.value
+		);
 	});
 
 	updateTaskList(
