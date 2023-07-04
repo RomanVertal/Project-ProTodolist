@@ -89,7 +89,7 @@ export const createUserAccount = (container, user) => {
 	buttonExit.addEventListener("click", () => {
 		createAskForm(wrapper, askExitAccountText, askExitAccountHandler);
 	});
-	console.log(user.login);
+
 	createUserAccountTasks(accountContent, user);
 	createUserAccountInfo(accountContent, user);
 

@@ -94,7 +94,6 @@ export const createUserAccountTasks = (container, user) => {
 
 	navFilter.addEventListener("click", (e) => {
 		tasksFilterHandler(e);
-		console.log(e.target);
 	});
 
 	tasksBlock.addEventListener("click", (e) => {

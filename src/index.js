@@ -8,16 +8,13 @@ import { sliderHandler } from "./components/slider/sliderHandler";
 import { createStartPage } from "./components/startPage";
 import { createWrapper, wrapper } from "./components/wrapper";
 import "./style/style.scss";
-import "./style/styleAccount.scss";
-import "./style/styleModalForm.scss";
-import "./style/styleStartPage.scss";
-import "./style/styleTaskItem.scss";
 import { decryptionData } from "./utils/encryption";
 
-const initApp = () => {
+export const initApp = () => {
 	createWrapper();
 	createHeader(wrapper);
 	createMain(wrapper);
+
 	if (localStorage.user) {
 		const login = decryptionData(localStorage.user);
 		createHeaderAccountUser(headerTop, login);
@@ -33,5 +30,3 @@ const initApp = () => {
 };
 
 initApp();
-
-// console.log(localStorage);
