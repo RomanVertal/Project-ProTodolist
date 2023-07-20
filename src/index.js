@@ -30,3 +30,5 @@ export const initApp = () => {
 };
 
 initApp();
+
+// localStorage.removeItem("user");

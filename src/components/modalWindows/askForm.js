@@ -40,6 +40,7 @@ export const askExitAccountHandler = () => {
 	accountInfo.remove();
 	accountTasks.textContent = "";
 	accountTasks.remove();
+
 	createStartPage(main);
 	createHeaderAccountButton(headerTop);
 	onRemoveAskForm();

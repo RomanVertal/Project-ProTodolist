@@ -1,4 +1,5 @@
 import { registrationUserHandler } from "../../api";
+import { isEmailValid } from "../../utils/isEmailValid";
 
 const registrationBlock = document.createElement("div");
 
@@ -120,6 +121,7 @@ export const createReregistrationForm = (container) => {
 		const inputs = registrationForm.querySelectorAll("input");
 		const emptyInputs = Array.from(inputs).filter((elem) => elem.value === "");
 		const passwordCheck = passwordInput.value === repeatPasswordInput.value;
+		const emailValid = isEmailValid(emailInput.value);
 
 		inputs.forEach((elem) => {
 			if (elem.value === "") {
@@ -135,7 +137,13 @@ export const createReregistrationForm = (container) => {
 			repeatPasswordInput.classList.add("invalid");
 		}
 
-		if (emptyInputs.length === 0 && passwordCheck) {
+		if (emailValid) {
+			emailInput.classList.remove("invalid");
+		} else {
+			emailInput.classList.add("invalid");
+		}
+
+		if (emptyInputs.length === 0 && passwordCheck && emailValid) {
 			registrationUserHandler(
 				loginInput.value,
 				passwordInput.value,

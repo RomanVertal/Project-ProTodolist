@@ -1,4 +1,5 @@
 import { updateTaskChecked, updateTaskTitle } from "../../api";
+import { decryptionData } from "../../utils/encryption";
 import {
 	askDeleteTaskHandler,
 	askDeleteTaskText,
@@ -10,13 +11,14 @@ import {
 } from "../modalWindows/congratulationsForm";
 import { wrapper } from "../wrapper";
 
-export const taskHandler = (e, login) => {
+export const taskHandler = (e) => {
+	const login = decryptionData(localStorage.user);
 	const { target } = e;
 	const task = target.closest(".task");
 
 	if (task) {
 		const idTask = target.closest(".task").id;
-
+		console.log(login);
 		if (target.className === "task__button-close") {
 			createAskForm(
 				wrapper,

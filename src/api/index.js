@@ -186,7 +186,6 @@ export const loginUserHandler = (login, password) => {
 				createHeaderAccountUser(headerTop, login);
 
 				localStorage.setItem("user", encryptionData(login));
-				console.log(localStorage);
 			} else {
 				createErrorForm(wrapper, incorrectDataText);
 			}

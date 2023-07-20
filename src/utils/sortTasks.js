@@ -7,7 +7,7 @@ export const sortTasks = (tasks) => {
 
 			if (item.completed) {
 				accumulator.completedTasks.push(item);
-			} else if (date >= item.deadline) {
+			} else if (date > item.deadline) {
 				accumulator.overdueTasks.push(item);
 			} else {
 				accumulator.inProgressTasks.push(item);

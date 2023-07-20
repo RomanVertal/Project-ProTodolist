@@ -1,4 +1,5 @@
 import { createTask } from "../../api";
+import { currentDate } from "../../utils/date";
 import { wrapper } from "../wrapper";
 import { addTaskText, createCongratulationsForm } from "./congratulationsForm";
 
@@ -42,6 +43,7 @@ export const createAddTaskForm = (container, login) => {
 	deadlineTaskInput.type = "date";
 	deadlineTaskInput.id = "task-deadline";
 	deadlineTaskInput.name = "task-deadline";
+	deadlineTaskInput.min = `${currentDate(new Date())}`;
 	form.append(deadlineTaskInput);
 
 	const addtaskLabel = document.createElement("label");

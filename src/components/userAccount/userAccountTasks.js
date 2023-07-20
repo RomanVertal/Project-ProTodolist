@@ -96,10 +96,6 @@ export const createUserAccountTasks = (container, user) => {
 		tasksFilterHandler(e);
 	});
 
-	tasksBlock.addEventListener("click", (e) => {
-		taskHandler(e, user.login);
-	});
-
 	buttonAddTask.addEventListener("click", () => {
 		createAddTaskForm(wrapper, user.login);
 	});
@@ -123,3 +119,7 @@ export const createUserAccountTasks = (container, user) => {
 
 	container.append(accountTasks);
 };
+
+tasksBlock.addEventListener("click", (e) => {
+	taskHandler(e);
+});
